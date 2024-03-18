@@ -8,7 +8,8 @@ try:
     with open(os.path.join(current_directory, 'README.md'), encoding='utf-8') as f:
         long_description = f.read()
 except Exception:
-    long_description = 'A Python package to use in translating texts based on api'
+    long_description = 'Translation of various texts without restrictions and without the need for authentication, token, access key, etc'
+
 
 setup(
     name='itranslator',
