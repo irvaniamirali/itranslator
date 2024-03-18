@@ -14,4 +14,4 @@ asyncio.run(main())
 ```
 
 ### License
-Heroapi is released under the GPL3 License. See the bundled [LICENSE](https://github.com/metect/itranslate/blob/main/LICENSE) file for details.
+Heroapi is released under the GPL-3.0 License. See the bundled [LICENSE](https://github.com/metect/itranslate/blob/main/LICENSE) file for details.
