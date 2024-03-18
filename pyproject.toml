@@ -1,0 +1,18 @@
+[project]
+name = "itranslator"
+version = "0.0.1"
+authors = [
+  { name="amirali irvany", email="dev.amirali.irvany@gmail.com" },
+]
+description = "A Python package to use in translating texts based on api "
+readme = "README.md"
+requires-python = ">=3.8"
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+
+[project.urls]
+Homepage = "https://github.com/metect/itranslator"
+Issues = "https://github.com/metect/itranslator/issues"
