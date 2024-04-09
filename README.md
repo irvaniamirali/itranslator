@@ -1,4 +1,4 @@
-# itranslator
+# ITranslator
 A Python package to use in translating texts based on api
 
 ## Simpale Example
@@ -14,4 +14,4 @@ asyncio.run(main())
 ```
 
 ### License
-Heroapi is released under the GPL-3.0 License. See the bundled [LICENSE](https://github.com/metect/itranslate/blob/main/LICENSE) file for details.
+ITranslator is released under the GPL-3.0 License. See the bundled [LICENSE](https://github.com/metect/itranslator/blob/main/LICENSE) file for details.
