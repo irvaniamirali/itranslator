@@ -17,7 +17,7 @@ setup(
     url='https://github.com/metect/itranslator',
     packages=find_packages(),
     exclude_package_data={'': ['*.pyc', '*__pycache__*']},
-    install_requires=requirements,
+    install_requires=['requests', 'user_agent'],
     classifiers=[
         'Programming Language :: Python :: 3.7',
         'Programming Language :: Python :: 3.8',
