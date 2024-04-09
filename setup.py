@@ -5,7 +5,7 @@ from setuptools import find_packages
 setup(
     name='itranslator',
     packages=find_packages('.'),
-    version='0.0.1',
+    version='0.0.2',
     license='MIT',
     description='A Python package to use in translating texts based on api',
     long_description=open('README.md', encoding='utf-8').read(),
