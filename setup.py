@@ -6,7 +6,7 @@ with open('README.md', encoding='UTF-8') as file:
 
 setup(
     name='itranslator',
-    version='0.0.3',
+    version='1.0.0',
     author='amirali irvany',
     author_email='dev.amirali.irvany@gmail.com',
     description='A Python package to use in translating texts based on api',
