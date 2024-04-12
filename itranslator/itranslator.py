@@ -1,15 +1,21 @@
 import urllib.parse, requests, json, html, re
 import user_agent as _user_agent
+from typing import Optional
 
 from .exceptions import *
 
 
 class translator:
 
-    def __init__(self, user_agent: str = None):
+    def __init__(self, user_agent: Optional[str] = None) -> None:
         self.user_agent = user_agent if user_agent is not None else _user_agent.generate_user_agent()
 
-    async def translate(self, query: str, to_lang: str = 'auto', from_lang: str = 'auto') -> str:
+    async def translate(
+            self,
+            query: str,
+            to_lang: Optional[str] = 'auto',
+            from_lang: Optional[str] = 'auto'
+    ) -> str:
         '''
         Translates a text from one language to another using the Google Translate API.
         :param query:
