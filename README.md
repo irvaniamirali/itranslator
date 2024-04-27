@@ -1,7 +1,7 @@
 # ITranslator
 A Python package to use in translating texts based on api
 
-## Simpale Example
+## Example
 ```python
 import itranslator, asyncio
 
