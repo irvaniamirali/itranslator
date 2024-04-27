@@ -14,4 +14,4 @@ asyncio.run(main())
 ```
 
 ### License
-ITranslator is released under the GPL-3.0 License. See the bundled [LICENSE](https://github.com/metect/itranslator/blob/main/LICENSE) file for details.
+ITranslator is released under the GPL-3.0 License. See the bundled [LICENSE](https://github.com/irvanyamirali/itranslator/blob/main/LICENSE) file for details.
