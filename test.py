@@ -1,4 +1,4 @@
-from itranslator import Translator
+from itranslator.asyncio import Translator
 from asyncio import run
 
 translator = Translator()
