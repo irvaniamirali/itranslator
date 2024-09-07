@@ -1,7 +1,6 @@
 from itranslator.errors import *
 
 import urllib.parse
-import json
 import html
 
 from user_agent import generate_user_agent
@@ -50,16 +49,3 @@ class Translator:
                 return html.unescape(translated_text[0])
         except Exception as error:
             raise TranslatorException(f'An unknown problem has occurred:\n{error}')
-
-    @property
-    def languages(self):
-        """
-        Show all translatable languages.
-        More detailed and complete viewing of languages in https://en.wikipedia.org/wiki/ISO_639-1
-        """
-        languages = open('itranslator/languages.json', 'r')
-        return json.load(languages)
-
-    @property
-    def lang_codes(self):
-        return dict(map(reversed, self.languages.items()))
