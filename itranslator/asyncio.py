@@ -5,11 +5,11 @@ import html
 
 from user_agent import generate_user_agent
 from re import findall
-from httpx import Client, codes
+from httpx import AsyncClient, codes
 
 from typing import Optional
 
-client = Client()
+client = AsyncClient()
 
 
 class Translator:
@@ -17,7 +17,7 @@ class Translator:
     def __init__(self, user_agent: Optional[str] = None) -> None:
         self.user_agent = user_agent or generate_user_agent()
 
-    def translate(
+    async def translate(
             self,
             query: str,
             to_lang: Optional[str] = 'auto',
@@ -35,7 +35,7 @@ class Translator:
             The translated
         """
         url = f'https://translate.google.com/m?tl=%s&sl=%s&q=%s'
-        request = client.request(
+        request = await client.request(
             method='GET', url=url % (to_lang, from_lang, urllib.parse.quote(query)),
             headers={
                 'User-Agent': self.user_agent
