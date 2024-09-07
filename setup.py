@@ -6,10 +6,10 @@ with open('README.md', encoding='UTF-8') as file:
 
 setup(
     name='itranslator',
-    version='2.0',
+    version='3.0',
     author='AmirAli Irvani',
     author_email='social.irvaniamirali@gmail.com',
-    description='A Python package to use in translating texts based on api',
+    description='Text translation package based on Google Translate API ',
     keywords=['translate', 'translator', 'google', 'google-translate', 'free-translator', 'asyncio'],
     long_description=readme,
     python_requires="~=3.7",
