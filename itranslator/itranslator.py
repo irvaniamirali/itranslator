@@ -1,21 +1,23 @@
+from itranslator.errors import *
+
 import urllib.parse
-import httpx
-import json
 import html
-import re
-import user_agent as _user_agent
+
+from user_agent import generate_user_agent
+from re import findall
+from httpx import Client, codes
 
 from typing import Optional
 
-client = httpx.AsyncClient()
+client = Client()
 
 
 class Translator:
 
     def __init__(self, user_agent: Optional[str] = None) -> None:
-        self.user_agent = user_agent if user_agent is not None else _user_agent.generate_user_agent()
+        self.user_agent = user_agent or generate_user_agent()
 
-    async def translate(
+    def translate(
             self,
             query: str,
             to_lang: Optional[str] = 'auto',
@@ -32,42 +34,18 @@ class Translator:
         :return:
             The translated
         """
-        if len(query) > 3900:
-            raise LimitCharacterExceeds('Text exceeds 3900 character limit')
-
         url = f'https://translate.google.com/m?tl=%s&sl=%s&q=%s'
-        request = await client.request(
+        request = client.request(
             method='GET', url=url % (to_lang, from_lang, urllib.parse.quote(query)),
             headers={
                 'User-Agent': self.user_agent
             }
         )
         try:
-            if request.status_code != httpx.codes.OK:
+            if request.status_code != codes.OK:
                 raise ConnectionError(f'A connection problem occurred\nstatus code: {request.status_code}')
             else:
-                translated_text = re.findall(r'(?s)class="(?:t0|result-container)">(.*?)<', request.text)
+                translated_text = findall(r'(?s)class="(?:t0|result-container)">(.*?)<', request.text)
                 return html.unescape(translated_text[0])
         except Exception as error:
             raise TranslatorException(f'An unknown problem has occurred:\n{error}')
-
-    @property
-    def languages(self):
-        """
-        Show all translatable languages.
-        More detailed and complete viewing of languages in https://en.wikipedia.org/wiki/ISO_639-1
-        """
-        languages = open('itranslator/languages.json', 'r')
-        return json.load(languages)
-
-    @property
-    def lang_codes(self):
-        return dict(map(reversed, self.languages.items()))
-
-
-class TranslatorException(Exception):
-    pass
-
-
-class LimitCharacterExceeds(Exception):
-    pass
